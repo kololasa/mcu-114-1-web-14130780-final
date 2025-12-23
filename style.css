@@ -400,18 +400,19 @@ h6 {
   }
 }
 .section {
-  padding-block: 3rem;
+  /* 增加垂直間距，讓區塊不要太擠 */
+  padding-block: 5rem;
   padding-inline: 8vw;
 }
 
 .top-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem; /* 標題跟內容拉開一點 */
 }
 .top-header h1 {
   font-size: 2.25rem;
   font-weight: 600;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
   color: #0f1724;
 }
 .top-header span {
@@ -425,34 +426,56 @@ h6 {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  gap: 50px;
+  gap: 50px; /* 左右兩欄的間距 */
 }
 .row .col {
   display: flex;
   width: 50%;
+  flex-direction: column;
 }
 
+/* 1. 左邊：自我介紹卡片化 */
+.about-info {
+  /* 加入卡片樣式：背景、陰影、圓角 */
+  background: #f7f8fa;
+  padding: 30px 35px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.08);
+  /* 讓卡片高度撐滿，視覺比較平衡 */
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.03); /* 淡淡的邊框增加質感 */
+  /* 自我介紹裡面的按鈕 (如果有下載履歷按鈕放在這) */
+}
 .about-info h3 {
   font-size: 1.7rem;
   margin-bottom: 20px;
   color: #0f1724;
+  font-weight: 600;
 }
 .about-info p {
-  color: #9ca3af;
-  font-size: 16px;
+  color: #6b7280; /* 改用深一點的灰，閱讀比較清楚 */
+  font-size: 1rem;
   line-height: 1.8;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 .about-info .about-btn .btn {
   margin-top: 10px;
-  background: #fbfbfc;
-  color: #0f1724;
+  background: #0b7285; /* 呼應整體配色的藍綠色 */
+  color: #ffffff;
   border: none;
-  padding: 10px 20px;
-  border-radius: 10px;
+  padding: 10px 24px;
+  border-radius: 8px;
   cursor: pointer;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+  transition: 0.3s;
+  font-weight: 500;
+}
+.about-info .about-btn .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.08);
 }
 
+/* 右邊：教育程度區塊 wrapper */
 .skills-box {
   width: 100%;
 }
@@ -460,33 +483,64 @@ h6 {
   font-size: 1.7rem;
   margin-bottom: 20px;
   color: #0f1724;
+  padding-left: 5px; /* 標題稍微對齊下面的卡片 */
 }
 
+/* 2. 右邊：學歷小卡片 */
 .resume-item {
-  background: #f7f8fa;
-  /* 加個陰影讓它浮起來 */
-  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
-  padding: 20px;
-  border-radius: 10px;
-  /* 左邊框改成你的主色 (橘紅) 或副色 (藍綠)，這樣才看得到裝飾線 */
-  border-left: 4px solid #0b7285;
+  position: relative;
   margin-bottom: 20px;
+  padding: 20px 25px;
+  /* 修正：原本透明度太高看不見，改用實體顏色 */
+  background: #f7f8fa;
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+  /* 裝飾：左邊加上明顯的色條 */
+  border-left: 5px solid #0b7285;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* 滑鼠移過去會有浮起來的效果 */
+  /* 時間 */
+}
+.resume-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.08);
 }
 .resume-item strong {
   display: block;
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   color: #0f1724;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 .resume-item span {
-  color: #6b7280;
+  display: inline-block;
+  color: #0b7285; /* 時間用強調色 */
   font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  background: rgba(11, 114, 133, 0.08); /* 淡淡的底色襯托時間 */
+  padding: 2px 8px;
+  border-radius: 4px;
 }
 .resume-item p {
-  margin-top: 10px;
-  color: #9ca3af;
+  margin-top: 5px;
+  color: #6b7280;
+  font-size: 0.95rem;
 }
 
+/* 3. 手機版響應式設計 */
+@media screen and (max-width: 900px) {
+  .row {
+    flex-direction: column; /* 手機版改成上下排列 */
+    gap: 40px;
+  }
+  .row .col {
+    width: 100%; /* 寬度佔滿 */
+  }
+  .about-info,
+  .resume-item {
+    padding: 20px; /* 手機版內距稍微縮小 */
+  }
+}
 .skills-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

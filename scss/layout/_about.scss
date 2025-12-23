@@ -1,18 +1,19 @@
 @use "../utils/variables" as *;
 
 .section {
-  padding-block: 3rem;
+  /* 增加垂直間距，讓區塊不要太擠 */
+  padding-block: 5rem;
   padding-inline: 8vw;
 }
 
 .top-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem; /* 標題跟內容拉開一點 */
 
   h1 {
     font-size: $fs-3xl;
     font-weight: 600;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
     color: $text-color;
   }
   span {
@@ -27,38 +28,62 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  gap: 50px;
+  gap: 50px; /* 左右兩欄的間距 */
 
   .col {
     display: flex;
     width: 50%;
+    flex-direction: column;
   }
 }
 
+/* 1. 左邊：自我介紹卡片化 */
 .about-info {
+  /* 加入卡片樣式：背景、陰影、圓角 */
+  background: $color-surface;
+  padding: 30px 35px;
+  border-radius: 16px;
+  box-shadow: $shadow-md;
+
+  /* 讓卡片高度撐滿，視覺比較平衡 */
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.03); /* 淡淡的邊框增加質感 */
+
   h3 {
     font-size: 1.7rem;
     margin-bottom: 20px;
     color: $text-color;
-  }
-  p {
-    color: $color-muted-light;
-    font-size: 16px;
-    line-height: 1.8;
-    margin-bottom: 20px;
+    font-weight: 600;
   }
 
+  p {
+    color: $color-muted; /* 改用深一點的灰，閱讀比較清楚 */
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 25px;
+  }
+
+  /* 自我介紹裡面的按鈕 (如果有下載履歷按鈕放在這) */
   .about-btn .btn {
     margin-top: 10px;
-    background: $nav-bg;
-    color: $text-color;
+    background: $color-secondary; /* 呼應整體配色的藍綠色 */
+    color: $color-bg;
     border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
+    padding: 10px 24px;
+    border-radius: 8px;
     cursor: pointer;
+    box-shadow: $shadow-sm;
+    transition: 0.3s;
+    font-weight: 500;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: $shadow-md;
+    }
   }
 }
 
+/* 右邊：教育程度區塊 wrapper */
 .skills-box {
   width: 100%;
 
@@ -66,35 +91,71 @@
     font-size: 1.7rem;
     margin-bottom: 20px;
     color: $text-color;
+    padding-left: 5px; /* 標題稍微對齊下面的卡片 */
   }
 }
 
+/* 2. 右邊：學歷小卡片 */
 .resume-item {
-  background: $color-surface;
+  position: relative;
+  margin-bottom: 20px;
+  padding: 20px 25px;
 
-  /* 加個陰影讓它浮起來 */
+  /* 修正：原本透明度太高看不見，改用實體顏色 */
+  background: $color-surface;
+  border-radius: 12px;
   box-shadow: $shadow-sm;
 
-  padding: 20px;
-  border-radius: 10px;
+  /* 裝飾：左邊加上明顯的色條 */
+  border-left: 5px solid $color-secondary;
 
-  /* 左邊框改成你的主色 (橘紅) 或副色 (藍綠)，這樣才看得到裝飾線 */
-  border-left: 4px solid $color-secondary;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-  margin-bottom: 20px;
+  /* 滑鼠移過去會有浮起來的效果 */
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $shadow-md;
+  }
 
   strong {
     display: block;
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     color: $text-color;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
   }
+
+  /* 時間 */
   span {
-    color: $color-muted;
+    display: inline-block;
+    color: $color-secondary; /* 時間用強調色 */
     font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    background: rgba(11, 114, 133, 0.08); /* 淡淡的底色襯托時間 */
+    padding: 2px 8px;
+    border-radius: 4px;
   }
+
   p {
-    margin-top: 10px;
-    color: $color-muted-light;
+    margin-top: 5px;
+    color: $color-muted;
+    font-size: 0.95rem;
+  }
+}
+
+/* 3. 手機版響應式設計 */
+@media screen and (max-width: 900px) {
+  .row {
+    flex-direction: column; /* 手機版改成上下排列 */
+    gap: 40px;
+  }
+
+  .row .col {
+    width: 100%; /* 寬度佔滿 */
+  }
+
+  .about-info,
+  .resume-item {
+    padding: 20px; /* 手機版內距稍微縮小 */
   }
 }
