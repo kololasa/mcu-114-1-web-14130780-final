@@ -55,7 +55,7 @@ h6 {
 }
 
 .shadow-lg {
-  box-shadow: 0 30px 60px rgba(16, 24, 40, 0.12);
+  box-shadow: 0 30px 60px rgba(3, 6, 11, 0.12);
 }
 
 .card {
@@ -80,12 +80,12 @@ h6 {
   transition: box-shadow 0.18s ease, transform 0.12s ease, background 0.12s ease;
 }
 .btn:hover {
-  box-shadow: 0 30px 60px rgba(16, 24, 40, 0.12);
+  box-shadow: 0 30px 60px rgba(3, 6, 11, 0.12);
   transform: translateY(-3px);
 }
 .btn:focus {
   outline: none;
-  box-shadow: 0 30px 60px rgba(16, 24, 40, 0.12);
+  box-shadow: 0 30px 60px rgba(3, 6, 11, 0.12);
 }
 
 #header {
@@ -181,7 +181,7 @@ h6 {
 }
 .featured-box .featured-text .featured-text-card span {
   display: inline-block;
-  background: #ff2c06;
+  background: #f5cd6f;
   color: #ffffff;
   padding: 4px 10px;
   font-size: 0.95rem;
@@ -212,7 +212,7 @@ h6 {
 }
 .featured-box .featured-text .featured-text-btn .blue-btn {
   background: #ff2c06;
-  color: #ffffff;
+  color: #2959f7;
   border: none;
   box-shadow: 0 6px 18px rgba(16, 24, 40, 0.08);
   padding: 10px 18px;
@@ -223,14 +223,14 @@ h6 {
   transition: transform 0.12s ease, box-shadow 0.12s ease;
 }
 .featured-box .featured-text .featured-text-btn .blue-btn:hover {
-  box-shadow: 0 30px 60px rgba(16, 24, 40, 0.12);
+  box-shadow: 0 30px 60px rgba(3, 6, 11, 0.12);
   transform: translateY(-3px);
 }
 .featured-box .featured-text .featured-text-btn .btn {
   padding: 10px 20px;
-  background: #fbfbfc;
+  background: #2959f7;
   color: #0f1724;
-  border: 1px solid rgba(16, 24, 40, 0.12);
+  border: 1px solid rgba(59, 83, 129, 0.12);
   box-shadow: 0 6px 18px rgba(16, 24, 40, 0.08);
   border-radius: 10px;
   cursor: pointer;
@@ -239,7 +239,7 @@ h6 {
   transition: box-shadow 0.12s ease, transform 0.12s ease, opacity 0.12s ease;
 }
 .featured-box .featured-text .featured-text-btn .btn:hover {
-  box-shadow: 0 30px 60px rgba(16, 24, 40, 0.12);
+  box-shadow: 0 30px 60px rgba(3, 6, 11, 0.12);
   transform: translateY(-2px);
   opacity: 0.95;
 }
@@ -263,7 +263,7 @@ h6 {
 .featured-box .featured-text .social_icons .icon:hover {
   color: #ff2c06;
   transform: scale(1.12);
-  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.08);
+  box-shadow: 0 30px 60px rgba(3, 6, 11, 0.12);
 }
 .featured-box .featured-image {
   display: flex;
@@ -290,7 +290,7 @@ h6 {
 }
 .featured-box .featured-image .image img:hover {
   transform: scale(1.12);
-  box-shadow: 0 30px 60px rgba(16, 24, 40, 0.12);
+  box-shadow: 0 30px 60px rgba(3, 6, 11, 0.12);
 }
 
 @keyframes imgFloat {

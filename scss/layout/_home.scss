@@ -20,7 +20,7 @@
 
     .featured-text-card span {
       display: inline-block;
-      background: $color-primary;
+      background: $color-yellow;
       color: $color-bg;
       padding: 4px 10px;
       font-size: 0.95rem;
@@ -54,7 +54,7 @@
 
       .blue-btn {
         background: $color-primary;
-        color: $color-bg;
+        color: $color-blue;
         border: none;
         box-shadow: $shadow-md;
         padding: 10px 18px;
@@ -72,9 +72,9 @@
 
       .btn {
         padding: 10px 20px;
-        background: $nav-bg;
+        background: $color-blue;
         color: $text-color;
-        border: 1px solid rgba(16, 24, 40, 0.12);
+        border: 1px solid rgba(59, 83, 129, 0.12);
         box-shadow: $shadow-md;
         border-radius: 10px;
         cursor: pointer;
@@ -110,7 +110,7 @@
         &:hover {
           color: $color-primary;
           transform: scale(1.12);
-          box-shadow: $shadow-md;
+          box-shadow: $shadow-lg;
         }
       }
     }
