@@ -109,22 +109,22 @@ h6 {
   top: 0;
   left: 0;
   width: 100%;
-  /* 1. 增加高度讓視覺更寬敞 (原本 56px -> 70px) */
+  /* 視覺調整 */
   height: 70px;
-  /* 2. 毛玻璃效果：背景半透明 + 模糊濾鏡 */
+  /* 1. 初始狀態 (在最上面時)：背景透明度較高，且 "沒有" 分隔線 */
   background: rgba(251, 251, 252, 0.8);
   -webkit-backdrop-filter: blur(12px);
           backdrop-filter: blur(12px);
-  /* 加入淡淡的底線區隔 */
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  /* 關鍵修改：將邊框設為透明或直接移除，這樣最上面就不會有線 */
+  border-bottom: 1px solid transparent;
   z-index: 100;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-inline: 6vw;
-  /* 平滑的轉場動畫 */
   transition: all 0.4s ease;
   box-shadow: none;
+  /* 導覽列選單區塊 (維持上次優化) */
 }
 #header .nav-logo {
   display: flex;
@@ -133,9 +133,10 @@ h6 {
   cursor: pointer;
 }
 #header .nav-logo .nav-name {
-  /* Logo 字體稍微加大並加重 */
-  font-size: 1.6rem;
-  font-weight: 700;
+  /* 2. 修改字體：使用剛引入的 Poppins，讓英文 Logo 更現代好看 */
+  font-family: "Poppins", sans-serif;
+  font-size: 1.7rem; /* 稍微加大 */
+  font-weight: 700; /* 加粗 */
   color: #0b7285;
   margin: 0;
   letter-spacing: 0.02em;
@@ -148,8 +149,8 @@ h6 {
 }
 #header .nav-menu .nav_menu_list {
   display: flex;
-  /* 3. 增加選單項目之間的距離 (原本 20px -> 32px) */
-  gap: 32px;
+  /* 修改這裡：原本是 20px 或 32px，建議改為 50px 甚至更大 */
+  gap: 50px;
   margin: 0;
   padding: 0;
   align-items: center;
@@ -157,28 +158,27 @@ h6 {
 #header .nav-menu .nav_menu_list .nav-link {
   position: relative;
   display: inline-block;
-  padding: 6px 0; /* 改為上下 padding，左右交給 gap 控制 */
+  padding: 6px 0;
   font-weight: 500;
   color: #0f1724;
   transition: color 0.3s;
   letter-spacing: 0.04em;
-  /* 4. 新增：底部線條動畫 */
+  /* 滑鼠移過去的底線動畫 */
 }
 #header .nav-menu .nav_menu_list .nav-link::after {
   content: "";
   position: absolute;
-  width: 0; /* 預設寬度 0 */
+  width: 0;
   height: 2px;
   bottom: 0;
   left: 50%;
-  background-color: #0b7285; /* 線條顏色 */
+  background-color: #0b7285;
   transition: all 0.3s ease;
-  transform: translateX(-50%); /* 讓線條從中間往兩邊長 */
+  transform: translateX(-50%);
 }
 #header .nav-menu .nav_menu_list .nav-link:hover, #header .nav-menu .nav_menu_list .nav-link.active {
   color: #0b7285;
   opacity: 1;
-  /* Hover 或 Active 時線條變寬 */
 }
 #header .nav-menu .nav_menu_list .nav-link:hover::after, #header .nav-menu .nav_menu_list .nav-link.active::after {
   width: 100%;
@@ -190,19 +190,17 @@ h6 {
 #header .nav-button .btn {
   padding: 8px 16px;
   font-size: 0.95rem;
-  /* 這裡可以維持一般按鈕樣式，或是你想要 Header 按鈕特別顯眼也可以在這改 */
 }
 
-/* 5. 捲動後的樣式變化 */
+/* 3. 捲動後的狀態 */
 #header.scrolled {
-  /* 捲動時高度稍微變小，增加精緻感 */
-  height: 60px;
-  background: rgba(251, 251, 252, 0.95); /* 背景變實一點 */
-  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05); /* 出現淡淡陰影 */
-  border-bottom: 1px solid transparent;
+  height: 60px; /* 捲動時變窄一點 */
+  background: rgba(251, 251, 252, 0.95); /* 背景變實，避免內容干擾 */
+  /* 捲動後顯示陰影，代替分隔線，效果比較柔和 */
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+  border-bottom: none;
 }
 
-/* 這是你原本有的 top class，保留即可 */
 #header.top {
   height: 90px;
 }
