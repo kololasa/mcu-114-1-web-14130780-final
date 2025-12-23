@@ -44,7 +44,7 @@
             </div>
 
             <div class="featured-text-btn">
-              <button class="btn blue-btn">聯絡我</button>
+              <button class="btn blue-btn" data-target="#contact">聯絡我</button>
               <button class="btn">下載履歷 <i class="fa-regular fa-file-pdf"></i></button>
             </div>
 
@@ -214,6 +214,15 @@
           <div class="icon"><i class="fa-brands fa-linkedin"></i></div>
         </div>
         <div class="bottom-footer">
+          <script>
+            document.querySelectorAll("button[data-target]").forEach(function (btn) {
+              btn.addEventListener("click", function () {
+                var sel = btn.getAttribute("data-target");
+                var el = document.querySelector(sel);
+                if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+              });
+            });
+          </script>
           <p>Copyright &copy; 2025 - <a href="#home">余昶逸</a> All rights reserved</p>
         </div>
       </footer>
