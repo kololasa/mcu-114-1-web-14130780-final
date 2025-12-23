@@ -70,11 +70,18 @@
 }
 
 .resume-item {
-  margin-bottom: 20px;
+  background: $color-surface;
+
+  /* 加個陰影讓它浮起來 */
+  box-shadow: $shadow-sm;
+
   padding: 20px;
-  background: rgba(255, 255, 255, 0.05);
   border-radius: 10px;
-  border-left: 2px solid $nav-bg;
+
+  /* 左邊框改成你的主色 (橘紅) 或副色 (藍綠)，這樣才看得到裝飾線 */
+  border-left: 4px solid $color-secondary;
+
+  margin-bottom: 20px;
 
   strong {
     display: block;

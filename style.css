@@ -463,11 +463,14 @@ h6 {
 }
 
 .resume-item {
-  margin-bottom: 20px;
+  background: #f7f8fa;
+  /* 加個陰影讓它浮起來 */
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
   padding: 20px;
-  background: rgba(255, 255, 255, 0.05);
   border-radius: 10px;
-  border-left: 2px solid #fbfbfc;
+  /* 左邊框改成你的主色 (橘紅) 或副色 (藍綠)，這樣才看得到裝飾線 */
+  border-left: 4px solid #0b7285;
+  margin-bottom: 20px;
 }
 .resume-item strong {
   display: block;
