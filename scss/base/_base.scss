@@ -12,19 +12,18 @@
 }
 
 html {
-  font-size: 100%;
+  font-size: 112.5%; // 放大整體 rem 尺寸（16px -> 18px 相當）
 }
 
 body {
   background: $body-color;
   color: $text-color;
-  font-size: $fs-md;
+  font-size: $fs-md; // 使用變數（rem 基礎會因 html 放大而變大）
   line-height: $line-height-base;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-// Headings scale
 h1 {
   font-size: $fs-2xl;
 }
@@ -44,7 +43,6 @@ h6 {
   font-size: $fs-xs;
 }
 
-// Shadow utility classes
 .shadow-sm {
   box-shadow: $shadow-sm;
 }
@@ -55,7 +53,6 @@ h6 {
   box-shadow: $shadow-lg;
 }
 
-// Card surface example
 .card {
   background: $color-surface;
   border-radius: $radius-md;

@@ -24,16 +24,16 @@
     }
 
     .featured-name {
-      font-size: 50px;
+      font-size: 60px;
       font-weight: 600;
-      margin-block: 20px;
+      margin-block: 24px;
       color: $nav-bg;
     }
 
     .featured-text-info {
-      font-size: 16px;
+      font-size: 18px;
       margin-bottom: 30px;
-      color: #e4e4e4;
+      color: $color-muted-light;
     }
 
     .featured-text-btn {
@@ -72,17 +72,17 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 40px;
-        height: 40px;
+        width: 48px;
+        height: 48px;
         border-radius: 50%;
-        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        box-shadow: $shadow-sm;
         cursor: pointer;
         transition: 0.3s;
 
         &:hover {
           color: $nav-bg;
-          transform: scale(1.1);
-          box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.4);
+          transform: scale(1.08);
+          box-shadow: $shadow-md;
         }
       }
     }
@@ -94,7 +94,8 @@
     align-items: center;
     width: 50%;
     min-height: 80vh;
-
+    justify-content: flex-start;
+    padding-left: 2%;
     .image {
       width: 350px;
       height: 350px;
