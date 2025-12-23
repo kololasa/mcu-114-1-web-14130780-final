@@ -9,11 +9,12 @@ $color-primary-700: #e02400;
 $color-secondary: #0b7285;
 $color-accent: #ffd166;
 $color-muted: #6b7280;
-$color-muted-light: #e4e4e4;
+$color-muted-light: #9ca3af; // 更適合可讀性的淺灰
 $color-bg: #ffffff;
 $color-surface: #f7f7fb;
 
-$font-family-sans: "Poppins", sans-serif;
+$font-family-sans: "Noto Sans TC", "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans CJK TC",
+  sans-serif;
 $fs-xxs: 0.625rem;
 $fs-xs: 0.75rem;
 $fs-sm: 0.875rem;
@@ -22,6 +23,13 @@ $fs-lg: 1.125rem;
 $fs-xl: 1.25rem;
 $fs-2xl: 1.5rem;
 $line-height-base: 1.5;
+
+// Extended font sizes
+$fs-3xl: 2.25rem; // 36px
+$fs-4xl: 3.5rem; // 56px
+$fs-hero: 3.75rem; // 60px
+$fs-heading-lg: 1.7rem; // ~27px
+$fs-footer-title: 1.5625rem; // 25px
 
 $shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.05);
 $shadow-md: 0 6px 18px rgba(16, 24, 40, 0.08);

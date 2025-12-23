@@ -12,13 +12,13 @@
 }
 
 html {
-  font-size: 112.5%; // 放大整體 rem 尺寸（16px -> 18px 相當）
+  font-size: 112.5%;
 }
 
 body {
   background: $body-color;
   color: $text-color;
-  font-size: $fs-md; // 使用變數（rem 基礎會因 html 放大而變大）
+  font-size: $fs-md;
   line-height: $line-height-base;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -58,4 +58,29 @@ h6 {
   border-radius: $radius-md;
   padding: 1rem;
   box-shadow: $shadow-md;
+}
+
+/* 統一按鈕樣式：邊框 + 陰影 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.1rem;
+  border: 1px solid rgba(16, 24, 40, 0.12);
+  background: $color-surface;
+  color: $text-color;
+  border-radius: $radius-sm;
+  box-shadow: $shadow-md;
+  cursor: pointer;
+  transition: box-shadow 0.18s ease, transform 0.12s ease, background 0.12s ease;
+
+  &:hover {
+    box-shadow: $shadow-lg;
+    transform: translateY(-3px);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: $shadow-lg;
+  }
 }

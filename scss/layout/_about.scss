@@ -1,23 +1,23 @@
 @use "../utils/variables" as *;
 
 .section {
-  padding-block: 5rem;
-  padding-inline: 10vw;
+  padding-block: 3rem;
+  padding-inline: 8vw;
 }
 
 .top-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 
   h1 {
-    font-size: 3.5rem;
+    font-size: $fs-3xl;
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
     color: $text-color;
   }
   span {
     color: $color-muted;
-    font-size: 14px;
+    font-size: 0.85rem;
     letter-spacing: 2px;
     text-transform: uppercase;
   }
@@ -79,7 +79,7 @@
   strong {
     display: block;
     font-size: 1.2rem;
-    color: $nav-bg;
+    color: $text-color;
     margin-bottom: 5px;
   }
   span {

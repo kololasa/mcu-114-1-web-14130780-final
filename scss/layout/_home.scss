@@ -24,27 +24,36 @@
     }
 
     .featured-name {
-      font-size: 60px;
+      font-size: $fs-3xl;
       font-weight: 600;
-      margin-block: 24px;
-      color: $nav-bg;
+      margin-block: 16px;
+      color: $text-color;
     }
 
     .featured-text-info {
-      font-size: 18px;
-      margin-bottom: 30px;
-      color: $color-muted-light;
+      font-size: $fs-md;
+      margin-bottom: 18px;
+      color: $color-muted;
     }
 
     .featured-text-btn {
       display: flex;
-      gap: 20px;
+      gap: 12px;
 
       .blue-btn {
-        background: transparent;
-        border: 2px solid $nav-bg;
+        background: $color-primary;
+        color: $color-bg;
+        border: none;
+        box-shadow: $shadow-md;
+        padding: 10px 20px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: transform 0.12s ease, box-shadow 0.12s ease;
+
         &:hover {
-          background: $nav-bg;
+          box-shadow: $shadow-lg;
+          transform: translateY(-3px);
         }
       }
 
@@ -52,36 +61,39 @@
         padding: 10px 20px;
         background: $nav-bg;
         color: $text-color;
-        border: none;
+        border: 1px solid rgba(16, 24, 40, 0.12);
+        box-shadow: $shadow-md;
         border-radius: 10px;
         cursor: pointer;
         font-weight: 500;
-        transition: 0.3s;
+        transition: box-shadow 0.12s ease, transform 0.12s ease, opacity 0.12s ease;
+
         &:hover {
-          opacity: 0.8;
+          box-shadow: $shadow-lg;
+          transform: translateY(-2px);
+          opacity: 0.95;
         }
       }
     }
 
     .social_icons {
       display: flex;
-      margin-top: 30px;
-      gap: 30px;
+      margin-top: 20px;
+      gap: 16px;
 
       .icon {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
+        width: 40px;
+        height: 40px;
         box-shadow: $shadow-sm;
         cursor: pointer;
         transition: 0.3s;
 
         &:hover {
-          color: $nav-bg;
-          transform: scale(1.08);
+          color: $color-primary;
+          transform: scale(1.12);
           box-shadow: $shadow-md;
         }
       }
@@ -94,22 +106,23 @@
     align-items: center;
     width: 50%;
     min-height: 80vh;
-    justify-content: flex-start;
-    padding-left: 2%;
+    justify-content: flex-end;
+    padding-right: 2%;
     .image {
-      width: 350px;
-      height: 350px;
+      width: 380px;
+      height: 380px;
       border-radius: 50%;
       overflow: hidden;
       animation: imgFloat 5s ease-in-out infinite;
 
       img {
-        width: 350px;
-        height: 350px;
+        width: 100%;
+        height: 100%;
         object-fit: cover;
+        transition: transform 0.35s ease, box-shadow 0.25s ease;
         &:hover {
-          transform: scale(1.05);
-          transition: 0.3s;
+          transform: scale(1.12);
+          box-shadow: $shadow-lg;
         }
       }
     }

@@ -2,32 +2,40 @@
 
 footer {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  flex-direction: column;
-  row-gap: 30px;
+  flex-direction: row;
+  gap: 20px;
   background: $color-surface;
-  padding-block: 40px 60px;
+  padding-block: 20px;
+  padding-inline: 6vw;
 
   .top-footer p {
-    font-size: 25px;
+    font-size: 18px;
     font-weight: 600;
     color: $text-color;
+    margin: 0;
   }
 
   .middle-footer .footer-menu {
     display: flex;
+    align-items: center;
+    gap: 16px;
   }
 
   .footer_menu_list {
     list-style: none;
+    display: flex;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
   }
 
   .footer_menu_list a {
     text-decoration: none;
     color: $text-color;
     font-weight: 500;
-    margin-inline: 20px;
+    margin: 0 8px;
 
     &:hover {
       color: $color-primary;
@@ -36,32 +44,32 @@ footer {
 
   .footer-social-icons {
     display: flex;
-    gap: 30px;
+    gap: 16px;
 
     .icon {
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 40px;
-      height: 40px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
-      border: 2px solid $text-color;
+      border: 1px solid rgba(16, 24, 40, 0.06);
       color: $text-color;
       cursor: pointer;
-      transition: 0.3s;
+      transition: 0.18s;
 
       &:hover {
         background: $color-primary;
         border-color: $color-primary;
-        color: #fff;
-        transform: scale(1.1);
+        color: $color-bg;
+        transform: scale(1.08);
       }
     }
   }
 
   .bottom-footer {
-    font-size: 14px;
-    margin-top: 10px;
+    font-size: 13px;
+    margin-left: auto;
     color: $color-muted;
 
     a {
@@ -71,10 +79,19 @@ footer {
   }
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 900px) {
+  footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding-block: 20px;
+  }
+  .bottom-footer {
+    margin-left: 0;
+  }
   .middle-footer .footer-menu {
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 12px;
   }
 }

@@ -3,39 +3,41 @@
 .project-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  padding-inline: 20px;
+  gap: 16px;
+  padding-inline: 8vw;
 }
 
 .project-box {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-height: 140px;
+  padding: 16px;
 
-  background: rgba(255, 255, 255, 0.05);
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  text-align: center;
-  transition: all 0.3s ease;
-  cursor: default;
+  background: $color-surface;
+  border: 1px solid rgba(16, 24, 40, 0.04);
+  border-radius: 12px;
+  text-align: left;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  cursor: pointer;
 
   &[href] {
     cursor: pointer;
   }
 
   h3 {
-    font-size: 1.5rem;
+    font-size: $fs-lg;
     font-weight: 600;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
     color: $text-color;
-    transition: 0.3s;
+    transition: color 0.18s ease;
   }
 
   p {
     font-size: 0.9rem;
     color: $color-muted;
+    margin-bottom: 8px;
   }
 
   .icon-box {
@@ -48,8 +50,8 @@
   }
 
   &:hover {
-    border-color: $color-primary;
-    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-6px);
+    box-shadow: $shadow-md;
 
     h3 {
       color: $color-primary;
