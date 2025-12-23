@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Poppins:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -18,7 +20,11 @@
           <p class="nav-name">Portfolio</p>
         </div>
 
-        <div class="nav-menu">
+        <div class="nav-menu-btn">
+          <i class="fa-solid fa-bars" onclick="myMenuFunction()"></i>
+        </div>
+
+        <div class="nav-menu" id="myNavMenu">
           <ul class="nav_menu_list">
             <li class="nav_list"><a href="#home" class="nav-link">首頁</a></li>
             <li class="nav_list"><a href="#about" class="nav-link">關於我</a></li>
@@ -31,6 +37,7 @@
           <button class="btn">下載履歷 <i class="fa-regular fa-file-pdf"></i></button>
         </div>
       </nav>
+
       <main class="wrapper">
         <section class="featured-box" id="home">
           <div class="featured-text">
@@ -45,8 +52,8 @@
             </div>
 
             <div class="featured-text-btn">
-              <button class="btn blue-btn" data-target="#contact">聯絡我</button>
               <button class="btn">下載履歷 <i class="fa-regular fa-file-pdf"></i></button>
+              <button class="btn blue-btn" data-target="#contact">聯絡我</button>
             </div>
 
             <div class="social_icons">
@@ -62,6 +69,7 @@
             </div>
           </div>
         </section>
+
         <section class="section" id="about">
           <div class="top-header">
             <h1>關於我</h1>
@@ -95,6 +103,7 @@
             </div>
           </div>
         </section>
+
         <section class="section" id="skills">
           <div class="top-header">
             <h1>技術能力</h1>
@@ -143,6 +152,7 @@
             </div>
           </div>
         </section>
+
         <section class="section" id="projects">
           <div class="top-header">
             <h1>作品集</h1>
@@ -157,49 +167,35 @@
                 <i class="fa-solid fa-magnifying-glass"></i>
               </div>
             </a>
-
             <div class="project-box">
               <h3>作品 2</h3>
               <p>主要實作網站切版</p>
-              <div class="icon-box">
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </div>
+              <div class="icon-box"><i class="fa-solid fa-magnifying-glass"></i></div>
             </div>
-
             <div class="project-box">
               <h3>作品 3</h3>
               <p>主要實作網站切版</p>
-              <div class="icon-box">
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </div>
+              <div class="icon-box"><i class="fa-solid fa-magnifying-glass"></i></div>
             </div>
-
             <div class="project-box">
               <h3>作品 4</h3>
               <p>主要實作網站切版</p>
-              <div class="icon-box">
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </div>
+              <div class="icon-box"><i class="fa-solid fa-magnifying-glass"></i></div>
             </div>
-
             <div class="project-box">
               <h3>作品 5</h3>
               <p>主要實作網站切版</p>
-              <div class="icon-box">
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </div>
+              <div class="icon-box"><i class="fa-solid fa-magnifying-glass"></i></div>
             </div>
-
             <div class="project-box">
               <h3>作品 6</h3>
               <p>主要實作網站切版</p>
-              <div class="icon-box">
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </div>
+              <div class="icon-box"><i class="fa-solid fa-magnifying-glass"></i></div>
             </div>
           </div>
         </section>
       </main>
+
       <footer>
         <div class="middle-footer">
           <ul class="footer-menu">
@@ -215,35 +211,10 @@
           <div class="icon"><i class="fa-brands fa-linkedin"></i></div>
         </div>
         <div class="bottom-footer">
-          <script>
-            (function () {
-              var header = document.getElementById("header");
-              function updateHeaderShadow() {
-                if (window.scrollY > 10) {
-                  header.classList.add("scrolled");
-                  header.classList.remove("top");
-                } else {
-                  header.classList.remove("scrolled");
-                  // when at the very top, add 'top' to shrink
-                  if (window.scrollY === 0) header.classList.add("top");
-                  else header.classList.remove("top");
-                }
-              }
-              updateHeaderShadow();
-              window.addEventListener("scroll", updateHeaderShadow);
-
-              document.querySelectorAll("button[data-target]").forEach(function (btn) {
-                btn.addEventListener("click", function () {
-                  var sel = btn.getAttribute("data-target");
-                  var el = document.querySelector(sel);
-                  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-                });
-              });
-            })();
-          </script>
           <p>Copyright &copy; 2025 - <a href="#home">余昶逸</a> All rights reserved</p>
         </div>
       </footer>
     </div>
+    <script src="main.js"></script>
   </body>
 </html>

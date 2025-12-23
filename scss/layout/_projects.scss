@@ -10,67 +10,77 @@
 .project-box {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-height: 140px;
+  padding: 16px;
 
-  /* 👇 毛玻璃特效關鍵 */
-  background: rgba(255, 255, 255, 0.03); /* 超淡的背景 */
-  backdrop-filter: blur(10px); /* 背景模糊 */
-  -webkit-backdrop-filter: blur(10px); /* 為了相容 Safari */
-
-  border: 1px solid rgba(255, 255, 255, 0.1); /* 淡淡的白邊 */
-  border-radius: 20px;
-  text-align: center;
-  transition: 0.4s; /* 讓動畫順一點 */
-  cursor: default;
-  position: relative; /* 為了定位 */
-  overflow: hidden; /* 為了把光藏在裡面 */
+  background: $color-surface;
+  border: 1px solid rgba(16, 24, 40, 0.04);
+  border-radius: 12px;
+  text-align: left;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  cursor: pointer;
 
   &[href] {
     cursor: pointer;
   }
 
   h3 {
-    font-size: 1.5rem;
+    font-size: $fs-lg;
     font-weight: 600;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
     color: $text-color;
-    transition: 0.3s;
-    z-index: 1; /* 確保文字浮在上面 */
+    transition: color 0.18s ease;
   }
 
   p {
     font-size: 0.9rem;
-    color: #aaa;
-    z-index: 1;
+    color: $color-muted;
+    margin-bottom: 8px;
   }
 
-  /* 👇 滑鼠移上去的超帥特效 */
+  .icon-box {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    color: $color-primary;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: 0.3s;
+  }
+
   &:hover {
-    /* 邊框發光 */
-    border-color: $main-color;
-    /* 整個盒子發光 */
-    box-shadow: 0 0 20px rgba(255, 44, 6, 0.2);
-    transform: translateY(-5px);
+    transform: translateY(-6px);
+    box-shadow: $shadow-md;
 
     h3 {
-      color: $main-color;
+      color: $color-primary;
     }
 
-    /* 讓背景稍微亮一點點 */
-    background: rgba(255, 44, 6, 0.05);
+    .icon-box {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 
+/* 平板：改兩欄 */
 @media screen and (max-width: 900px) {
   .project-container {
     grid-template-columns: repeat(2, 1fr);
+    padding-inline: 4vw;
   }
 }
 
+/* 手機：改一欄 */
 @media screen and (max-width: 600px) {
   .project-container {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .project-box {
+    min-height: auto; /* 手機版高度自適應 */
+    padding: 24px; /* 手機版內距大一點好按 */
   }
 }

@@ -109,13 +109,13 @@ h6 {
   top: 0;
   left: 0;
   width: 100%;
-  /* 視覺調整 */
+  /* 視覺調整：增加高度 */
   height: 70px;
-  /* 1. 初始狀態 (在最上面時)：背景透明度較高，且 "沒有" 分隔線 */
+  /* 毛玻璃效果：背景半透明 + 模糊 */
   background: rgba(251, 251, 252, 0.8);
   -webkit-backdrop-filter: blur(12px);
           backdrop-filter: blur(12px);
-  /* 關鍵修改：將邊框設為透明或直接移除，這樣最上面就不會有線 */
+  /* 初始狀態無分隔線，這會讓網頁最上方看起來很乾淨 */
   border-bottom: 1px solid transparent;
   z-index: 100;
   display: flex;
@@ -124,7 +124,7 @@ h6 {
   padding-inline: 6vw;
   transition: all 0.4s ease;
   box-shadow: none;
-  /* 導覽列選單區塊 (維持上次優化) */
+  /* 下載履歷按鈕樣式 */
 }
 #header .nav-logo {
   display: flex;
@@ -133,10 +133,10 @@ h6 {
   cursor: pointer;
 }
 #header .nav-logo .nav-name {
-  /* 2. 修改字體：使用剛引入的 Poppins，讓英文 Logo 更現代好看 */
+  /* 使用 Poppins 字體，看起來更現代 */
   font-family: "Poppins", sans-serif;
-  font-size: 1.7rem; /* 稍微加大 */
-  font-weight: 700; /* 加粗 */
+  font-size: 1.7rem;
+  font-weight: 700;
   color: #0b7285;
   margin: 0;
   letter-spacing: 0.02em;
@@ -149,7 +149,7 @@ h6 {
 }
 #header .nav-menu .nav_menu_list {
   display: flex;
-  /* 修改這裡：原本是 20px 或 32px，建議改為 50px 甚至更大 */
+  /* 選單項目間距加大 */
   gap: 50px;
   margin: 0;
   padding: 0;
@@ -163,7 +163,7 @@ h6 {
   color: #0f1724;
   transition: color 0.3s;
   letter-spacing: 0.04em;
-  /* 滑鼠移過去的底線動畫 */
+  /* 滑鼠移過去的底部線條動畫 */
 }
 #header .nav-menu .nav_menu_list .nav-link::after {
   content: "";
@@ -192,19 +192,70 @@ h6 {
   font-size: 0.95rem;
 }
 
-/* 3. 捲動後的狀態 */
+/* 捲動後的狀態 */
 #header.scrolled {
   height: 60px; /* 捲動時變窄一點 */
-  background: rgba(251, 251, 252, 0.95); /* 背景變實，避免內容干擾 */
-  /* 捲動後顯示陰影，代替分隔線，效果比較柔和 */
-  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
-  border-bottom: none;
+  background: rgba(251, 251, 252, 0.95); /* 背景變實 */
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05); /* 出現淡淡陰影代替分隔線 */
 }
 
 #header.top {
   height: 90px;
 }
 
+/* -------------- 手機與平板排版 (Responsive) -------------- */
+@media only screen and (max-width: 900px) {
+  #header {
+    padding-inline: 4vw; /* 手機版左右留白小一點 */
+  }
+  /* 漢堡按鈕樣式 */
+  .nav-menu-btn {
+    display: flex;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #0f1724;
+    margin-left: auto;
+    margin-right: 20px;
+  }
+  /* 預設隱藏選單 (手機版) */
+  .nav-menu {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.98); /* 手機選單背景不透明比較好讀 */
+    -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease-in-out;
+    overflow: hidden;
+    height: 0; /* 預設收起 */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  }
+  /* 當選單被打開時 */
+  .nav-menu.responsive {
+    height: 280px;
+  }
+  .nav_menu_list {
+    flex-direction: column;
+    gap: 25px !important; /* 強制覆蓋原本的水平間距 */
+    padding: 20px 0;
+    width: 100%;
+  }
+  /* 手機版隱藏 Header 右邊的大按鈕 */
+  .nav-button {
+    display: none;
+  }
+}
+/* 電腦版隱藏漢堡按鈕 */
+@media only screen and (min-width: 901px) {
+  .nav-menu-btn {
+    display: none;
+  }
+}
 .featured-box {
   position: relative;
   display: flex;
@@ -222,6 +273,8 @@ h6 {
   align-items: flex-start;
   max-width: 48rem;
   gap: 8px;
+  /* 按鈕區塊：修復顏色衝突 */
+  /* 社交圖示：加上背景與邊框，解決看不見的問題 */
 }
 .featured-box .featured-text .featured-text-card span {
   display: inline-block;
@@ -253,18 +306,13 @@ h6 {
 .featured-box .featured-text .featured-text-btn {
   display: flex;
   gap: 12px;
-  /* 1. 先定義通用的 .btn 樣式 (這是右邊那顆 "下載履歷" 的樣式) */
-  /* 2. 再定義 .blue-btn 特殊樣式 (這是左邊那顆 "聯絡我" 的樣式) */
-  /* 因為寫在後面，所以會覆蓋上面的設定 */
-  /* 請確保這段放在 .btn 的後面，才能正確覆蓋樣式 */
+  /* 1. 一般按鈕 (下載履歷) - 放上面 */
+  /* 2. 重點按鈕 (聯絡我) - 放下面以覆蓋樣式 */
 }
 .featured-box .featured-text .featured-text-btn .btn {
   padding: 10px 20px;
-  /* 原本是 $color-blue (藍色)，改成 $color-surface (淺灰/白) */
-  background: #f7f8fa;
-  /* 確保文字是深色 */
+  background: #f7f8fa; /* 改成淺色背景 */
   color: #0f1724;
-  /* 邊框顏色建議改回跟 base 一致的深灰半透明，原本的藍色半透明會有點怪 */
   border: 1px solid rgba(16, 24, 40, 0.12);
   box-shadow: 0 6px 18px rgba(16, 24, 40, 0.08);
   border-radius: 10px;
@@ -279,10 +327,8 @@ h6 {
   opacity: 0.95;
 }
 .featured-box .featured-text .featured-text-btn .blue-btn {
-  /* background: $color-primary;  <-- 舊的：橘紅色 */
-  background: #0b7285; /* 新的建議：藍綠色 (呼應 Logo 顏色) */
-  /* color: $color-blue;  <-- 舊的：藍色字 (在深色背景上不清楚) */
-  color: #ffffff; /* 新的建議：白色字 (最清晰) */
+  background: #0b7285; /* 使用藍綠色 (Teal) */
+  color: #ffffff; /* 白色文字 */
   border: none;
   box-shadow: 0 6px 18px rgba(16, 24, 40, 0.08);
   padding: 10px 18px;
@@ -295,7 +341,6 @@ h6 {
 .featured-box .featured-text .featured-text-btn .blue-btn:hover {
   box-shadow: 0 30px 60px rgba(3, 6, 11, 0.12);
   transform: translateY(-3px);
-  /* hover 時稍微變亮一點，或者維持原樣 */
   opacity: 0.9;
 }
 .featured-box .featured-text .social_icons {
@@ -309,11 +354,10 @@ h6 {
   align-items: center;
   width: 40px;
   height: 40px;
-  /* 修改這裡：加入背景色與邊框，並增強陰影 */
-  background: #f7f8fa; /* 或 $color-bg 讓它變白色 */
-  border: 1px solid rgba(16, 24, 40, 0.12); /* 加上淡淡的邊框 */
-  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.08); /* 改用較明顯的陰影 */
-  color: #0f1724; /* 確保圖示顏色正確 */
+  background: #f7f8fa; /* 加上背景 */
+  border: 1px solid rgba(16, 24, 40, 0.12); /* 加上邊框 */
+  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.08);
+  color: #0f1724;
   cursor: pointer;
   transition: 0.3s;
   font-size: 1.05rem;
@@ -361,10 +405,13 @@ h6 {
     transform: translateY(-20px);
   }
 }
+/* 平板與手機版排版 (Pad & Mobile) */
 @media (max-width: 900px) {
   .featured-box {
-    flex-direction: column;
-    padding: 6% 6%;
+    flex-direction: column; /* 改為垂直排列 */
+    padding: 100px 6% 6% 6%; /* 增加上方 padding 避開 Header */
+    justify-content: flex-start;
+    gap: 40px;
   }
   .featured-box .featured-text {
     width: 100%;
@@ -391,23 +438,32 @@ h6 {
     width: 100%;
     min-height: auto;
     padding-right: 0;
-    margin-top: 18px;
+    margin-top: 0;
   }
   .featured-box .featured-image .image {
-    width: 260px;
-    height: 260px;
+    width: 280px;
+    height: 280px;
     margin: 0 auto;
   }
 }
+/* 小手機版 (Mobile Only) */
+@media (max-width: 540px) {
+  .featured-box .featured-text .featured-name {
+    font-size: 2.2rem;
+  }
+  .featured-box .featured-image .image {
+    width: 250px;
+    height: 250px;
+  }
+}
 .section {
-  /* 增加垂直間距，讓區塊不要太擠 */
   padding-block: 5rem;
   padding-inline: 8vw;
 }
 
 .top-header {
   text-align: center;
-  margin-bottom: 3rem; /* 標題跟內容拉開一點 */
+  margin-bottom: 3rem;
 }
 .top-header h1 {
   font-size: 2.25rem;
@@ -426,25 +482,23 @@ h6 {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  gap: 50px; /* 左右兩欄的間距 */
+  gap: 50px; /* 這裡有 gap */
 }
 .row .col {
   display: flex;
-  width: 50%;
+  /* 修改這裡：原本是 width: 50%; 改成 flex: 1; 讓它自動分配剩餘空間，才不會被撐爆 */
+  flex: 1;
   flex-direction: column;
 }
 
-/* 1. 左邊：自我介紹卡片化 */
+/* 左邊：自我介紹卡片 */
 .about-info {
-  /* 加入卡片樣式：背景、陰影、圓角 */
   background: #f7f8fa;
   padding: 30px 35px;
   border-radius: 16px;
   box-shadow: 0 6px 18px rgba(16, 24, 40, 0.08);
-  /* 讓卡片高度撐滿，視覺比較平衡 */
   height: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.03); /* 淡淡的邊框增加質感 */
-  /* 自我介紹裡面的按鈕 (如果有下載履歷按鈕放在這) */
+  border: 1px solid rgba(0, 0, 0, 0.03);
 }
 .about-info h3 {
   font-size: 1.7rem;
@@ -453,14 +507,14 @@ h6 {
   font-weight: 600;
 }
 .about-info p {
-  color: #6b7280; /* 改用深一點的灰，閱讀比較清楚 */
+  color: #6b7280;
   font-size: 1rem;
   line-height: 1.8;
   margin-bottom: 25px;
 }
 .about-info .about-btn .btn {
   margin-top: 10px;
-  background: #0b7285; /* 呼應整體配色的藍綠色 */
+  background: #0b7285;
   color: #ffffff;
   border: none;
   padding: 10px 24px;
@@ -475,7 +529,6 @@ h6 {
   box-shadow: 0 6px 18px rgba(16, 24, 40, 0.08);
 }
 
-/* 右邊：教育程度區塊 wrapper */
 .skills-box {
   width: 100%;
 }
@@ -483,23 +536,19 @@ h6 {
   font-size: 1.7rem;
   margin-bottom: 20px;
   color: #0f1724;
-  padding-left: 5px; /* 標題稍微對齊下面的卡片 */
+  padding-left: 5px;
 }
 
-/* 2. 右邊：學歷小卡片 */
+/* 右邊：學歷卡片 */
 .resume-item {
   position: relative;
   margin-bottom: 20px;
   padding: 20px 25px;
-  /* 修正：原本透明度太高看不見，改用實體顏色 */
   background: #f7f8fa;
   border-radius: 12px;
   box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
-  /* 裝飾：左邊加上明顯的色條 */
   border-left: 5px solid #0b7285;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  /* 滑鼠移過去會有浮起來的效果 */
-  /* 時間 */
 }
 .resume-item:hover {
   transform: translateY(-5px);
@@ -513,11 +562,11 @@ h6 {
 }
 .resume-item span {
   display: inline-block;
-  color: #0b7285; /* 時間用強調色 */
+  color: #0b7285;
   font-size: 0.9rem;
   font-weight: 500;
   margin-bottom: 8px;
-  background: rgba(11, 114, 133, 0.08); /* 淡淡的底色襯托時間 */
+  background: rgba(11, 114, 133, 0.08);
   padding: 2px 8px;
   border-radius: 4px;
 }
@@ -527,18 +576,18 @@ h6 {
   font-size: 0.95rem;
 }
 
-/* 3. 手機版響應式設計 */
+/* 手機版響應式 */
 @media screen and (max-width: 900px) {
-  .row {
-    flex-direction: column; /* 手機版改成上下排列 */
-    gap: 40px;
+  .section {
+    padding-inline: 4vw;
   }
-  .row .col {
-    width: 100%; /* 寬度佔滿 */
+  .row {
+    flex-direction: column;
+    gap: 30px;
   }
   .about-info,
   .resume-item {
-    padding: 20px; /* 手機版內距稍微縮小 */
+    padding: 20px;
   }
 }
 .skills-container {
@@ -603,59 +652,68 @@ h6 {
 .project-box {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
-  /* 👇 毛玻璃特效關鍵 */
-  background: rgba(255, 255, 255, 0.03); /* 超淡的背景 */
-  backdrop-filter: blur(10px); /* 背景模糊 */
-  -webkit-backdrop-filter: blur(10px); /* 為了相容 Safari */
-  border: 1px solid rgba(255, 255, 255, 0.1); /* 淡淡的白邊 */
-  border-radius: 20px;
-  text-align: center;
-  transition: 0.4s; /* 讓動畫順一點 */
-  cursor: default;
-  position: relative; /* 為了定位 */
-  overflow: hidden; /* 為了把光藏在裡面 */
-  /* 👇 滑鼠移上去的超帥特效 */
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-height: 140px;
+  padding: 16px;
+  background: #f7f8fa;
+  border: 1px solid rgba(16, 24, 40, 0.04);
+  border-radius: 12px;
+  text-align: left;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  cursor: pointer;
 }
 .project-box[href] {
   cursor: pointer;
 }
 .project-box h3 {
-  font-size: 1.5rem;
+  font-size: 1.125rem;
   font-weight: 600;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
   color: #0f1724;
-  transition: 0.3s;
-  z-index: 1; /* 確保文字浮在上面 */
+  transition: color 0.18s ease;
 }
 .project-box p {
   font-size: 0.9rem;
-  color: #aaa;
-  z-index: 1;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+.project-box .icon-box {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  color: #ff2c06;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: 0.3s;
 }
 .project-box:hover {
-  /* 邊框發光 */
-  border-color: #ff2c06;
-  /* 整個盒子發光 */
-  box-shadow: 0 0 20px rgba(255, 44, 6, 0.2);
-  transform: translateY(-5px);
-  /* 讓背景稍微亮一點點 */
-  background: rgba(255, 44, 6, 0.05);
+  transform: translateY(-6px);
+  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.08);
 }
 .project-box:hover h3 {
   color: #ff2c06;
 }
+.project-box:hover .icon-box {
+  opacity: 1;
+  transform: translateY(0);
+}
 
+/* 平板：改兩欄 */
 @media screen and (max-width: 900px) {
   .project-container {
     grid-template-columns: repeat(2, 1fr);
+    padding-inline: 4vw;
   }
 }
+/* 手機：改一欄 */
 @media screen and (max-width: 600px) {
   .project-container {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .project-box {
+    min-height: auto; /* 手機版高度自適應 */
+    padding: 24px; /* 手機版內距大一點好按 */
   }
 }
 footer {

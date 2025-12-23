@@ -1,14 +1,13 @@
 @use "../utils/variables" as *;
 
 .section {
-  /* 增加垂直間距，讓區塊不要太擠 */
   padding-block: 5rem;
   padding-inline: 8vw;
 }
 
 .top-header {
   text-align: center;
-  margin-bottom: 3rem; /* 標題跟內容拉開一點 */
+  margin-bottom: 3rem;
 
   h1 {
     font-size: $fs-3xl;
@@ -28,26 +27,24 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  gap: 50px; /* 左右兩欄的間距 */
+  gap: 50px; /* 這裡有 gap */
 
   .col {
     display: flex;
-    width: 50%;
+    /* 修改這裡：原本是 width: 50%; 改成 flex: 1; 讓它自動分配剩餘空間，才不會被撐爆 */
+    flex: 1;
     flex-direction: column;
   }
 }
 
-/* 1. 左邊：自我介紹卡片化 */
+/* 左邊：自我介紹卡片 */
 .about-info {
-  /* 加入卡片樣式：背景、陰影、圓角 */
   background: $color-surface;
   padding: 30px 35px;
   border-radius: 16px;
   box-shadow: $shadow-md;
-
-  /* 讓卡片高度撐滿，視覺比較平衡 */
   height: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.03); /* 淡淡的邊框增加質感 */
+  border: 1px solid rgba(0, 0, 0, 0.03);
 
   h3 {
     font-size: 1.7rem;
@@ -55,18 +52,16 @@
     color: $text-color;
     font-weight: 600;
   }
-
   p {
-    color: $color-muted; /* 改用深一點的灰，閱讀比較清楚 */
+    color: $color-muted;
     font-size: 1rem;
     line-height: 1.8;
     margin-bottom: 25px;
   }
 
-  /* 自我介紹裡面的按鈕 (如果有下載履歷按鈕放在這) */
   .about-btn .btn {
     margin-top: 10px;
-    background: $color-secondary; /* 呼應整體配色的藍綠色 */
+    background: $color-secondary;
     color: $color-bg;
     border: none;
     padding: 10px 24px;
@@ -83,7 +78,6 @@
   }
 }
 
-/* 右邊：教育程度區塊 wrapper */
 .skills-box {
   width: 100%;
 
@@ -91,27 +85,21 @@
     font-size: 1.7rem;
     margin-bottom: 20px;
     color: $text-color;
-    padding-left: 5px; /* 標題稍微對齊下面的卡片 */
+    padding-left: 5px;
   }
 }
 
-/* 2. 右邊：學歷小卡片 */
+/* 右邊：學歷卡片 */
 .resume-item {
   position: relative;
   margin-bottom: 20px;
   padding: 20px 25px;
-
-  /* 修正：原本透明度太高看不見，改用實體顏色 */
   background: $color-surface;
   border-radius: 12px;
   box-shadow: $shadow-sm;
-
-  /* 裝飾：左邊加上明顯的色條 */
   border-left: 5px solid $color-secondary;
-
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-  /* 滑鼠移過去會有浮起來的效果 */
   &:hover {
     transform: translateY(-5px);
     box-shadow: $shadow-md;
@@ -123,19 +111,16 @@
     color: $text-color;
     margin-bottom: 8px;
   }
-
-  /* 時間 */
   span {
     display: inline-block;
-    color: $color-secondary; /* 時間用強調色 */
+    color: $color-secondary;
     font-size: 0.9rem;
     font-weight: 500;
     margin-bottom: 8px;
-    background: rgba(11, 114, 133, 0.08); /* 淡淡的底色襯托時間 */
+    background: rgba(11, 114, 133, 0.08);
     padding: 2px 8px;
     border-radius: 4px;
   }
-
   p {
     margin-top: 5px;
     color: $color-muted;
@@ -143,19 +128,19 @@
   }
 }
 
-/* 3. 手機版響應式設計 */
+/* 手機版響應式 */
 @media screen and (max-width: 900px) {
-  .row {
-    flex-direction: column; /* 手機版改成上下排列 */
-    gap: 40px;
+  .section {
+    padding-inline: 4vw;
   }
 
-  .row .col {
-    width: 100%; /* 寬度佔滿 */
+  .row {
+    flex-direction: column;
+    gap: 30px;
   }
 
   .about-info,
   .resume-item {
-    padding: 20px; /* 手機版內距稍微縮小 */
+    padding: 20px;
   }
 }

@@ -6,14 +6,14 @@
   left: 0;
   width: 100%;
 
-  /* 視覺調整 */
+  /* 視覺調整：增加高度 */
   height: 70px;
 
-  /* 1. 初始狀態 (在最上面時)：背景透明度較高，且 "沒有" 分隔線 */
+  /* 毛玻璃效果：背景半透明 + 模糊 */
   background: rgba(251, 251, 252, 0.8);
   backdrop-filter: blur(12px);
 
-  /* 關鍵修改：將邊框設為透明或直接移除，這樣最上面就不會有線 */
+  /* 初始狀態無分隔線，這會讓網頁最上方看起來很乾淨 */
   border-bottom: 1px solid transparent;
 
   z-index: 100;
@@ -33,18 +33,16 @@
     cursor: pointer;
 
     .nav-name {
-      /* 2. 修改字體：使用剛引入的 Poppins，讓英文 Logo 更現代好看 */
+      /* 使用 Poppins 字體，看起來更現代 */
       font-family: "Poppins", sans-serif;
-
-      font-size: 1.7rem; /* 稍微加大 */
-      font-weight: 700; /* 加粗 */
+      font-size: 1.7rem;
+      font-weight: 700;
       color: $color-secondary;
       margin: 0;
       letter-spacing: 0.02em;
     }
   }
 
-  /* 導覽列選單區塊 (維持上次優化) */
   .nav-menu {
     flex: 1 1 auto;
     display: flex;
@@ -53,10 +51,8 @@
 
     .nav_menu_list {
       display: flex;
-
-      /* 修改這裡：原本是 20px 或 32px，建議改為 50px 甚至更大 */
+      /* 選單項目間距加大 */
       gap: 50px;
-
       margin: 0;
       padding: 0;
       align-items: center;
@@ -70,7 +66,7 @@
         transition: color 0.3s;
         letter-spacing: 0.04em;
 
-        /* 滑鼠移過去的底線動畫 */
+        /* 滑鼠移過去的底部線條動畫 */
         &::after {
           content: "";
           position: absolute;
@@ -101,22 +97,79 @@
     flex: 0 0 auto;
   }
 
+  /* 下載履歷按鈕樣式 */
   .nav-button .btn {
     padding: 8px 16px;
     font-size: 0.95rem;
   }
 }
 
-/* 3. 捲動後的狀態 */
+/* 捲動後的狀態 */
 #header.scrolled {
   height: 60px; /* 捲動時變窄一點 */
-  background: rgba(251, 251, 252, 0.95); /* 背景變實，避免內容干擾 */
-
-  /* 捲動後顯示陰影，代替分隔線，效果比較柔和 */
-  box-shadow: $shadow-sm;
-  border-bottom: none;
+  background: rgba(251, 251, 252, 0.95); /* 背景變實 */
+  box-shadow: $shadow-sm; /* 出現淡淡陰影代替分隔線 */
 }
 
 #header.top {
   height: 90px;
+}
+
+/* -------------- 手機與平板排版 (Responsive) -------------- */
+@media only screen and (max-width: 900px) {
+  #header {
+    padding-inline: 4vw; /* 手機版左右留白小一點 */
+  }
+
+  /* 漢堡按鈕樣式 */
+  .nav-menu-btn {
+    display: flex;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: $text-color;
+    margin-left: auto;
+    margin-right: 20px;
+  }
+
+  /* 預設隱藏選單 (手機版) */
+  .nav-menu {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.98); /* 手機選單背景不透明比較好讀 */
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease-in-out;
+    overflow: hidden;
+    height: 0; /* 預設收起 */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  }
+
+  /* 當選單被打開時 */
+  .nav-menu.responsive {
+    height: 280px;
+  }
+
+  .nav_menu_list {
+    flex-direction: column;
+    gap: 25px !important; /* 強制覆蓋原本的水平間距 */
+    padding: 20px 0;
+    width: 100%;
+  }
+
+  /* 手機版隱藏 Header 右邊的大按鈕 */
+  .nav-button {
+    display: none;
+  }
+}
+
+/* 電腦版隱藏漢堡按鈕 */
+@media only screen and (min-width: 901px) {
+  .nav-menu-btn {
+    display: none;
+  }
 }
