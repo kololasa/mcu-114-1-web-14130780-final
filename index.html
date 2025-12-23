@@ -215,13 +215,30 @@
         </div>
         <div class="bottom-footer">
           <script>
-            document.querySelectorAll("button[data-target]").forEach(function (btn) {
-              btn.addEventListener("click", function () {
-                var sel = btn.getAttribute("data-target");
-                var el = document.querySelector(sel);
-                if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+            (function () {
+              var header = document.getElementById("header");
+              function updateHeaderShadow() {
+                if (window.scrollY > 10) {
+                  header.classList.add("scrolled");
+                  header.classList.remove("top");
+                } else {
+                  header.classList.remove("scrolled");
+                  // when at the very top, add 'top' to shrink
+                  if (window.scrollY === 0) header.classList.add("top");
+                  else header.classList.remove("top");
+                }
+              }
+              updateHeaderShadow();
+              window.addEventListener("scroll", updateHeaderShadow);
+
+              document.querySelectorAll("button[data-target]").forEach(function (btn) {
+                btn.addEventListener("click", function () {
+                  var sel = btn.getAttribute("data-target");
+                  var el = document.querySelector(sel);
+                  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                });
               });
-            });
+            })();
           </script>
           <p>Copyright &copy; 2025 - <a href="#home">余昶逸</a> All rights reserved</p>
         </div>

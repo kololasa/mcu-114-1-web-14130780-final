@@ -14,7 +14,7 @@ html {
 }
 
 body {
-  background: #f3f4f6;
+  background: #fbfbfc;
   color: #0f1724;
   font-size: 1rem;
   line-height: 1.5;
@@ -59,7 +59,7 @@ h6 {
 }
 
 .card {
-  background: #eef0f3;
+  background: #f7f8fa;
   border-radius: 12px;
   padding: 1rem;
   box-shadow: 0 6px 18px rgba(16, 24, 40, 0.08);
@@ -72,7 +72,7 @@ h6 {
   gap: 0.5rem;
   padding: 0.6rem 1.1rem;
   border: 1px solid rgba(16, 24, 40, 0.12);
-  background: #eef0f3;
+  background: #f7f8fa;
   color: #0f1724;
   border-radius: 6px;
   box-shadow: 0 6px 18px rgba(16, 24, 40, 0.08);
@@ -93,8 +93,8 @@ h6 {
   top: 0;
   left: 0;
   width: 100%;
-  height: 72px;
-  background: #ffffff;
+  height: 56px;
+  background: #fbfbfc;
   -webkit-backdrop-filter: blur(6px);
           backdrop-filter: blur(6px);
   z-index: 100;
@@ -102,7 +102,10 @@ h6 {
   justify-content: space-between;
   align-items: center;
   padding-inline: 6vw;
-  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.08);
+  box-shadow: none;
+  transition: height 0.28s ease, box-shadow 0.45s ease, background 0.3s ease, -webkit-backdrop-filter 0.3s ease;
+  transition: height 0.28s ease, box-shadow 0.45s ease, backdrop-filter 0.3s ease, background 0.3s ease;
+  transition: height 0.28s ease, box-shadow 0.45s ease, backdrop-filter 0.3s ease, background 0.3s ease, -webkit-backdrop-filter 0.3s ease;
 }
 #header .nav-logo {
   display: flex;
@@ -110,10 +113,11 @@ h6 {
   gap: 0.5rem;
 }
 #header .nav-logo .nav-name {
-  font-size: 2.25rem;
+  font-size: 1.5rem;
   font-weight: 600;
   color: #0b7285;
   margin: 0;
+  letter-spacing: 0.06em;
 }
 #header .nav-menu {
   flex: 1 1 auto;
@@ -134,6 +138,7 @@ h6 {
   font-weight: 500;
   color: #0f1724;
   transition: color 0.2s, opacity 0.2s;
+  letter-spacing: 0.04em;
 }
 #header .nav-menu .nav_menu_list .nav-link:hover {
   color: #ff2c06;
@@ -146,6 +151,14 @@ h6 {
 #header .nav-button .btn {
   padding: 8px 14px;
   font-size: 0.95rem;
+}
+
+#header.scrolled {
+  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.08);
+}
+
+#header.top {
+  height: 90px;
 }
 
 .featured-box {
@@ -164,7 +177,7 @@ h6 {
   padding-left: 20px;
 }
 .featured-box .featured-text .featured-text-card span {
-  background: #ffffff;
+  background: #fbfbfc;
   color: #0f1724;
   padding: 3px 8px;
   font-size: 12px;
@@ -187,7 +200,7 @@ h6 {
 }
 .featured-box .featured-text .featured-text-btn .blue-btn {
   background: #ff2c06;
-  color: #f7f8fa;
+  color: #ffffff;
   border: none;
   box-shadow: 0 6px 18px rgba(16, 24, 40, 0.08);
   padding: 10px 20px;
@@ -202,7 +215,7 @@ h6 {
 }
 .featured-box .featured-text .featured-text-btn .btn {
   padding: 10px 20px;
-  background: #ffffff;
+  background: #fbfbfc;
   color: #0f1724;
   border: 1px solid rgba(16, 24, 40, 0.12);
   box-shadow: 0 6px 18px rgba(16, 24, 40, 0.08);
@@ -318,7 +331,7 @@ h6 {
 }
 .about-info .about-btn .btn {
   margin-top: 10px;
-  background: #ffffff;
+  background: #fbfbfc;
   color: #0f1724;
   border: none;
   padding: 10px 20px;
@@ -340,7 +353,7 @@ h6 {
   padding: 20px;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 10px;
-  border-left: 2px solid #ffffff;
+  border-left: 2px solid #fbfbfc;
 }
 .resume-item strong {
   display: block;
@@ -378,17 +391,21 @@ h6 {
 }
 .skill-item .progress-line {
   width: 100%;
-  height: 10px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
+  /* track frame */
+  height: 14px;
+  background: #f7f8fa;
+  border-radius: 14px;
   position: relative;
   overflow: hidden;
+  border: 1px solid #9ca3af;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+  padding: 3px; /* inner padding so the filled bar has breathing room */
 }
 .skill-item .progress-line span {
   display: block;
   height: 100%;
   background: #ff2c06;
-  border-radius: 10px;
+  border-radius: 8px;
   animation: slideRight 1s ease-in-out forwards;
   transform: scaleX(0);
   transform-origin: left;
@@ -419,7 +436,7 @@ h6 {
   align-items: flex-start;
   min-height: 140px;
   padding: 16px;
-  background: #eef0f3;
+  background: #f7f8fa;
   border: 1px solid rgba(16, 24, 40, 0.04);
   border-radius: 12px;
   text-align: left;
@@ -476,9 +493,9 @@ footer {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  row-gap: 30px;
-  background: #eef0f3;
-  padding-block: 40px 60px;
+  row-gap: 18px;
+  background: #f7f8fa;
+  padding-block: 16px 32px;
 }
 footer .top-footer p {
   font-size: 25px;
@@ -519,7 +536,7 @@ footer .footer-social-icons .icon {
 footer .footer-social-icons .icon:hover {
   background: #ff2c06;
   border-color: #ff2c06;
-  color: #f7f8fa;
+  color: #ffffff;
   transform: scale(1.1);
 }
 footer .bottom-footer {

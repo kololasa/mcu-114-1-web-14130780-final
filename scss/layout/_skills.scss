@@ -23,17 +23,21 @@
 
   .progress-line {
     width: 100%;
-    height: 10px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
+    /* track frame */
+    height: 14px;
+    background: $color-surface;
+    border-radius: 14px;
     position: relative;
     overflow: hidden;
+    border: 1px solid $color-muted-light;
+    box-shadow: $shadow-sm;
+    padding: 3px; /* inner padding so the filled bar has breathing room */
 
     span {
       display: block;
       height: 100%;
       background: $color-primary;
-      border-radius: 10px;
+      border-radius: 8px;
       animation: slideRight 1s ease-in-out forwards;
       transform: scaleX(0);
       transform-origin: left;

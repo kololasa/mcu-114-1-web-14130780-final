@@ -5,7 +5,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 72px;
+  height: 56px;
   background: $nav-bg;
   backdrop-filter: blur(6px);
   z-index: 100;
@@ -14,7 +14,8 @@
   justify-content: space-between;
   align-items: center;
   padding-inline: 6vw;
-  box-shadow: $shadow-md;
+  box-shadow: none;
+  transition: height 0.28s ease, box-shadow 0.45s ease, backdrop-filter 0.3s ease, background 0.3s ease;
 
   .nav-logo {
     display: flex;
@@ -22,10 +23,11 @@
     gap: 0.5rem;
 
     .nav-name {
-      font-size: $fs-3xl;
+      font-size: $fs-2xl;
       font-weight: 600;
       color: $color-secondary;
       margin: 0;
+      letter-spacing: 0.06em;
     }
   }
 
@@ -48,6 +50,7 @@
         font-weight: 500;
         color: $text-color;
         transition: color 0.2s, opacity 0.2s;
+        letter-spacing: 0.04em;
 
         &:hover {
           color: $first-color;
@@ -66,4 +69,12 @@
     padding: 8px 14px;
     font-size: 0.95rem;
   }
+}
+
+#header.scrolled {
+  box-shadow: $shadow-md;
+}
+
+#header.top {
+  height: 90px;
 }
