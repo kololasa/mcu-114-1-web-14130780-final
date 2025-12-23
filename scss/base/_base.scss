@@ -5,13 +5,60 @@
   padding: 0;
   box-sizing: border-box;
 
-  font-family: "Poppins", sans-serif;
+  font-family: $font-family-sans;
 
   text-decoration: none;
   list-style: none;
 }
 
+html {
+  font-size: 100%;
+}
+
 body {
   background: $body-color;
   color: $text-color;
+  font-size: $fs-md;
+  line-height: $line-height-base;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Headings scale
+h1 {
+  font-size: $fs-2xl;
+}
+h2 {
+  font-size: $fs-xl;
+}
+h3 {
+  font-size: $fs-lg;
+}
+h4 {
+  font-size: $fs-md;
+}
+h5 {
+  font-size: $fs-sm;
+}
+h6 {
+  font-size: $fs-xs;
+}
+
+// Shadow utility classes
+.shadow-sm {
+  box-shadow: $shadow-sm;
+}
+.shadow-md {
+  box-shadow: $shadow-md;
+}
+.shadow-lg {
+  box-shadow: $shadow-lg;
+}
+
+// Card surface example
+.card {
+  background: $color-surface;
+  border-radius: $radius-md;
+  padding: 1rem;
+  box-shadow: $shadow-md;
 }

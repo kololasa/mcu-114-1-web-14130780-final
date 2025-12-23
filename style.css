@@ -7,9 +7,60 @@
   list-style: none;
 }
 
+html {
+  font-size: 100%;
+}
+
 body {
   background: #ffffff;
   color: #252a34;
+  font-size: 1rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+}
+
+h3 {
+  font-size: 1.125rem;
+}
+
+h4 {
+  font-size: 1rem;
+}
+
+h5 {
+  font-size: 0.875rem;
+}
+
+h6 {
+  font-size: 0.75rem;
+}
+
+.shadow-sm {
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+}
+
+.shadow-md {
+  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.08);
+}
+
+.shadow-lg {
+  box-shadow: 0 30px 60px rgba(16, 24, 40, 0.12);
+}
+
+.card {
+  background: #f7f7fb;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.08);
 }
 
 #header {
