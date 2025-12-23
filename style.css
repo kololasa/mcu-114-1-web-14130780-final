@@ -1,1 +1,12 @@
-/*# sourceMappingURL=style.css.map */
+@charset "UTF-8";
+/* --- 主樣式檔案 --- */
+/* 匯入基礎設定 */
+/* 1. 引入剛剛寫好的變數 (as * 代表不改名直接用) */
+/* --- 顏色變數 --- */
+/* 深灰藍色背景 */
+/* 白色文字 */
+/* 2. 設定網頁背景與文字顏色 */
+body {
+  background: #252a34; /* 使用變數 */
+  color: #ffffff; /* 使用變數 */
+}/*# sourceMappingURL=style.css.map */
