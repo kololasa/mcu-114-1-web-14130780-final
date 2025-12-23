@@ -52,9 +52,43 @@
       display: flex;
       gap: 12px;
 
+      /* 1. 先定義通用的 .btn 樣式 (這是右邊那顆 "下載履歷" 的樣式) */
+      .btn {
+        padding: 10px 20px;
+
+        /* 原本是 $color-blue (藍色)，改成 $color-surface (淺灰/白) */
+        background: $color-surface;
+
+        /* 確保文字是深色 */
+        color: $text-color;
+
+        /* 邊框顏色建議改回跟 base 一致的深灰半透明，原本的藍色半透明會有點怪 */
+        border: 1px solid rgba(16, 24, 40, 0.12);
+
+        box-shadow: $shadow-md;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: 500;
+        font-size: 0.95rem;
+        transition: box-shadow 0.12s ease, transform 0.12s ease, opacity 0.12s ease;
+
+        &:hover {
+          box-shadow: $shadow-lg;
+          transform: translateY(-2px);
+          opacity: 0.95;
+        }
+      }
+
+      /* 2. 再定義 .blue-btn 特殊樣式 (這是左邊那顆 "聯絡我" 的樣式) */
+      /* 因為寫在後面，所以會覆蓋上面的設定 */
+      /* 請確保這段放在 .btn 的後面，才能正確覆蓋樣式 */
       .blue-btn {
-        background: $color-primary;
-        color: $color-blue;
+        /* background: $color-primary;  <-- 舊的：橘紅色 */
+        background: $color-secondary; /* 新的建議：藍綠色 (呼應 Logo 顏色) */
+
+        /* color: $color-blue;  <-- 舊的：藍色字 (在深色背景上不清楚) */
+        color: $color-bg; /* 新的建議：白色字 (最清晰) */
+
         border: none;
         box-shadow: $shadow-md;
         padding: 10px 18px;
@@ -67,25 +101,8 @@
         &:hover {
           box-shadow: $shadow-lg;
           transform: translateY(-3px);
-        }
-      }
-
-      .btn {
-        padding: 10px 20px;
-        background: $color-blue;
-        color: $text-color;
-        border: 1px solid rgba(59, 83, 129, 0.12);
-        box-shadow: $shadow-md;
-        border-radius: 10px;
-        cursor: pointer;
-        font-weight: 500;
-        font-size: 0.95rem;
-        transition: box-shadow 0.12s ease, transform 0.12s ease, opacity 0.12s ease;
-
-        &:hover {
-          box-shadow: $shadow-lg;
-          transform: translateY(-2px);
-          opacity: 0.95;
+          /* hover 時稍微變亮一點，或者維持原樣 */
+          opacity: 0.9;
         }
       }
     }
@@ -101,16 +118,23 @@
         align-items: center;
         width: 40px;
         height: 40px;
-        box-shadow: $shadow-sm;
+
+        /* 修改這裡：加入背景色與邊框，並增強陰影 */
+        background: $color-surface; /* 或 $color-bg 讓它變白色 */
+        border: 1px solid rgba(16, 24, 40, 0.12); /* 加上淡淡的邊框 */
+        box-shadow: $shadow-md; /* 改用較明顯的陰影 */
+        color: $text-color; /* 確保圖示顏色正確 */
+
         cursor: pointer;
         transition: 0.3s;
         font-size: 1.05rem;
         border-radius: 50%;
 
         &:hover {
-          color: $color-primary;
+          color: $color-primary; // 維持原本的 hover 效果
           transform: scale(1.12);
           box-shadow: $shadow-lg;
+          border-color: transparent; // hover 時可以隱藏邊框或是改變顏色
         }
       }
     }

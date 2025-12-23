@@ -5,29 +5,41 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 56px;
-  background: $nav-bg;
-  backdrop-filter: blur(6px);
+
+  /* 1. 增加高度讓視覺更寬敞 (原本 56px -> 70px) */
+  height: 70px;
+
+  /* 2. 毛玻璃效果：背景半透明 + 模糊濾鏡 */
+  background: rgba(251, 251, 252, 0.8);
+  backdrop-filter: blur(12px);
+
+  /* 加入淡淡的底線區隔 */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
   z-index: 100;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-inline: 6vw;
+
+  /* 平滑的轉場動畫 */
+  transition: all 0.4s ease;
   box-shadow: none;
-  transition: height 0.28s ease, box-shadow 0.45s ease, backdrop-filter 0.3s ease, background 0.3s ease;
 
   .nav-logo {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    cursor: pointer;
 
     .nav-name {
-      font-size: $fs-2xl;
-      font-weight: 600;
+      /* Logo 字體稍微加大並加重 */
+      font-size: 1.6rem;
+      font-weight: 700;
       color: $color-secondary;
       margin: 0;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.02em;
     }
   }
 
@@ -39,22 +51,43 @@
 
     .nav_menu_list {
       display: flex;
-      gap: 20px;
+      /* 3. 增加選單項目之間的距離 (原本 20px -> 32px) */
+      gap: 32px;
       margin: 0;
       padding: 0;
       align-items: center;
 
       .nav-link {
+        position: relative;
         display: inline-block;
-        padding: 6px 6px;
+        padding: 6px 0; /* 改為上下 padding，左右交給 gap 控制 */
         font-weight: 500;
         color: $text-color;
-        transition: color 0.2s, opacity 0.2s;
+        transition: color 0.3s;
         letter-spacing: 0.04em;
 
-        &:hover {
-          color: $first-color;
-          opacity: 0.95;
+        /* 4. 新增：底部線條動畫 */
+        &::after {
+          content: "";
+          position: absolute;
+          width: 0; /* 預設寬度 0 */
+          height: 2px;
+          bottom: 0;
+          left: 50%;
+          background-color: $color-secondary; /* 線條顏色 */
+          transition: all 0.3s ease;
+          transform: translateX(-50%); /* 讓線條從中間往兩邊長 */
+        }
+
+        &:hover,
+        &.active {
+          color: $color-secondary;
+          opacity: 1;
+
+          /* Hover 或 Active 時線條變寬 */
+          &::after {
+            width: 100%;
+          }
         }
       }
     }
@@ -66,15 +99,22 @@
   }
 
   .nav-button .btn {
-    padding: 8px 14px;
+    padding: 8px 16px;
     font-size: 0.95rem;
+    /* 這裡可以維持一般按鈕樣式，或是你想要 Header 按鈕特別顯眼也可以在這改 */
   }
 }
 
+/* 5. 捲動後的樣式變化 */
 #header.scrolled {
-  box-shadow: $shadow-md;
+  /* 捲動時高度稍微變小，增加精緻感 */
+  height: 60px;
+  background: rgba(251, 251, 252, 0.95); /* 背景變實一點 */
+  box-shadow: $shadow-sm; /* 出現淡淡陰影 */
+  border-bottom: 1px solid transparent;
 }
 
+/* 這是你原本有的 top class，保留即可 */
 #header.top {
   height: 90px;
 }

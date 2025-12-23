@@ -85,3 +85,20 @@ h6 {
     box-shadow: $shadow-lg;
   }
 }
+
+::-webkit-scrollbar {
+  width: 10px; /* 捲軸寬度 */
+}
+
+::-webkit-scrollbar-track {
+  background: $body-color; /* 軌道顏色 (跟背景一樣深) */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #555; /* 捲軸本體的顏色 */
+  border-radius: 5px; /* 圓圓的 */
+
+  &:hover {
+    background: $first-color; /* 滑鼠移過去變橘色 */
+  }
+}
