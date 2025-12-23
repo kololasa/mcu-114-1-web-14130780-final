@@ -175,24 +175,36 @@ h6 {
   flex-direction: column;
   justify-content: center;
   padding-left: 20px;
+  align-items: flex-start;
+  max-width: 48rem;
+  gap: 8px;
 }
 .featured-box .featured-text .featured-text-card span {
-  background: #fbfbfc;
-  color: #0f1724;
-  padding: 3px 8px;
-  font-size: 12px;
-  border-radius: 5px;
+  display: inline-block;
+  background: #ff2c06;
+  color: #ffffff;
+  padding: 4px 10px;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  letter-spacing: 0.2px;
+  border: none;
+  margin-bottom: 6px;
 }
 .featured-box .featured-text .featured-name {
   font-size: 2.25rem;
   font-weight: 600;
   margin-block: 16px;
   color: #0f1724;
+  line-height: 1.05;
+  letter-spacing: -0.6px;
+  word-break: keep-all;
 }
 .featured-box .featured-text .featured-text-info {
   font-size: 1rem;
   margin-bottom: 18px;
   color: #6b7280;
+  line-height: 1.6;
+  max-width: 42rem;
 }
 .featured-box .featured-text .featured-text-btn {
   display: flex;
@@ -203,10 +215,11 @@ h6 {
   color: #ffffff;
   border: none;
   box-shadow: 0 6px 18px rgba(16, 24, 40, 0.08);
-  padding: 10px 20px;
+  padding: 10px 18px;
   border-radius: 10px;
   cursor: pointer;
   font-weight: 600;
+  font-size: 0.98rem;
   transition: transform 0.12s ease, box-shadow 0.12s ease;
 }
 .featured-box .featured-text .featured-text-btn .blue-btn:hover {
@@ -222,6 +235,7 @@ h6 {
   border-radius: 10px;
   cursor: pointer;
   font-weight: 500;
+  font-size: 0.95rem;
   transition: box-shadow 0.12s ease, transform 0.12s ease, opacity 0.12s ease;
 }
 .featured-box .featured-text .featured-text-btn .btn:hover {
@@ -243,6 +257,8 @@ h6 {
   box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
   cursor: pointer;
   transition: 0.3s;
+  font-size: 1.05rem;
+  border-radius: 50%;
 }
 .featured-box .featured-text .social_icons .icon:hover {
   color: #ff2c06;
@@ -283,6 +299,44 @@ h6 {
   }
   50% {
     transform: translateY(-20px);
+  }
+}
+@media (max-width: 900px) {
+  .featured-box {
+    flex-direction: column;
+    padding: 6% 6%;
+  }
+  .featured-box .featured-text {
+    width: 100%;
+    padding-left: 0;
+    text-align: center;
+    align-items: center;
+  }
+  .featured-box .featured-text .featured-name {
+    font-size: 2rem;
+    margin-block: 12px;
+  }
+  .featured-box .featured-text .featured-text-info {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .featured-box .featured-text .featured-text-btn {
+    justify-content: center;
+  }
+  .featured-box .featured-text .social_icons {
+    justify-content: center;
+  }
+  .featured-box .featured-image {
+    width: 100%;
+    min-height: auto;
+    padding-right: 0;
+    margin-top: 18px;
+  }
+  .featured-box .featured-image .image {
+    width: 260px;
+    height: 260px;
+    margin: 0 auto;
   }
 }
 .section {

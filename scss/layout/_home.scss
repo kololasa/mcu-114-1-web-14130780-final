@@ -14,13 +14,20 @@
     flex-direction: column;
     justify-content: center;
     padding-left: 20px;
+    align-items: flex-start;
+    max-width: 48rem;
+    gap: 8px;
 
     .featured-text-card span {
-      background: $nav-bg;
-      color: $text-color;
-      padding: 3px 8px;
-      font-size: 12px;
-      border-radius: 5px;
+      display: inline-block;
+      background: $color-primary;
+      color: $color-bg;
+      padding: 4px 10px;
+      font-size: 0.95rem;
+      border-radius: 6px;
+      letter-spacing: 0.2px;
+      border: none;
+      margin-bottom: 6px;
     }
 
     .featured-name {
@@ -28,12 +35,17 @@
       font-weight: 600;
       margin-block: 16px;
       color: $text-color;
+      line-height: 1.05;
+      letter-spacing: -0.6px;
+      word-break: keep-all;
     }
 
     .featured-text-info {
       font-size: $fs-md;
       margin-bottom: 18px;
       color: $color-muted;
+      line-height: 1.6;
+      max-width: 42rem;
     }
 
     .featured-text-btn {
@@ -45,10 +57,11 @@
         color: $color-bg;
         border: none;
         box-shadow: $shadow-md;
-        padding: 10px 20px;
+        padding: 10px 18px;
         border-radius: 10px;
         cursor: pointer;
         font-weight: 600;
+        font-size: 0.98rem;
         transition: transform 0.12s ease, box-shadow 0.12s ease;
 
         &:hover {
@@ -66,6 +79,7 @@
         border-radius: 10px;
         cursor: pointer;
         font-weight: 500;
+        font-size: 0.95rem;
         transition: box-shadow 0.12s ease, transform 0.12s ease, opacity 0.12s ease;
 
         &:hover {
@@ -90,6 +104,8 @@
         box-shadow: $shadow-sm;
         cursor: pointer;
         transition: 0.3s;
+        font-size: 1.05rem;
+        border-radius: 50%;
 
         &:hover {
           color: $color-primary;
@@ -136,5 +152,51 @@
   }
   50% {
     transform: translateY(-20px);
+  }
+}
+
+@media (max-width: 900px) {
+  .featured-box {
+    flex-direction: column;
+    padding: 6% 6%;
+
+    .featured-text {
+      width: 100%;
+      padding-left: 0;
+      text-align: center;
+      align-items: center;
+
+      .featured-name {
+        font-size: 2rem;
+        margin-block: 12px;
+      }
+
+      .featured-text-info {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .featured-text-btn {
+        justify-content: center;
+      }
+
+      .social_icons {
+        justify-content: center;
+      }
+    }
+
+    .featured-image {
+      width: 100%;
+      min-height: auto;
+      padding-right: 0;
+      margin-top: 18px;
+
+      .image {
+        width: 260px;
+        height: 260px;
+        margin: 0 auto;
+      }
+    }
   }
 }
