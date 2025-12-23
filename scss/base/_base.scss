@@ -1,8 +1,17 @@
-/* 1. 引入剛剛寫好的變數 (as * 代表不改名直接用) */
 @use "../utils/variables" as *;
 
-/* 2. 設定網頁背景與文字顏色 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: "Poppins", sans-serif;
+
+  text-decoration: none;
+  list-style: none;
+}
+
 body {
-  background: $body-color; /* 使用變數 */
-  color: $text-color; /* 使用變數 */
+  background: $body-color;
+  color: $text-color;
 }

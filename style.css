@@ -1,12 +1,13 @@
-@charset "UTF-8";
-/* --- 主樣式檔案 --- */
-/* 匯入基礎設定 */
-/* 1. 引入剛剛寫好的變數 (as * 代表不改名直接用) */
-/* --- 顏色變數 --- */
-/* 深灰藍色背景 */
-/* 白色文字 */
-/* 2. 設定網頁背景與文字顏色 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+  list-style: none;
+}
+
 body {
-  background: #252a34; /* 使用變數 */
-  color: #ffffff; /* 使用變數 */
+  background: #252a34;
+  color: #ffffff;
 }/*# sourceMappingURL=style.css.map */
