@@ -1,0 +1,80 @@
+@use "../utils/variables" as *;
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 30px;
+  background: $color-surface;
+  padding-block: 40px 60px;
+
+  .top-footer p {
+    font-size: 25px;
+    font-weight: 600;
+    color: $text-color;
+  }
+
+  .middle-footer .footer-menu {
+    display: flex;
+  }
+
+  .footer_menu_list {
+    list-style: none;
+  }
+
+  .footer_menu_list a {
+    text-decoration: none;
+    color: $text-color;
+    font-weight: 500;
+    margin-inline: 20px;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  .footer-social-icons {
+    display: flex;
+    gap: 30px;
+
+    .icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid $text-color;
+      color: $text-color;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+        background: $color-primary;
+        border-color: $color-primary;
+        color: #fff;
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .bottom-footer {
+    font-size: 14px;
+    margin-top: 10px;
+    color: $color-muted;
+
+    a {
+      color: $color-primary;
+      text-decoration: none;
+    }
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .middle-footer .footer-menu {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+}

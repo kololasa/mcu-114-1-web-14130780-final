@@ -1,0 +1,75 @@
+@use "../utils/variables" as *;
+
+.project-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding-inline: 20px;
+}
+
+.project-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: default;
+
+  &[href] {
+    cursor: pointer;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: $text-color;
+    transition: 0.3s;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: $color-muted;
+  }
+
+  .icon-box {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    color: $color-primary;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: 0.3s;
+  }
+
+  &:hover {
+    border-color: $color-primary;
+    background: rgba(255, 255, 255, 0.08);
+
+    h3 {
+      color: $color-primary;
+    }
+
+    .icon-box {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .project-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .project-container {
+    grid-template-columns: 1fr;
+  }
+}
